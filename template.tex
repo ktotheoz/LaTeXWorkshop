@@ -1,0 +1,76 @@
+
+% Dies gibt unsere Dokumentenklasse an
+\documentclass[12pt]{article}
+
+% Wir wollen das ganze auf Deutsch machen, andere Sprachen können aber natürlich auch verwendet werden
+% Für die ganz spezielle Abgabe gibt es auch elbisch: http://tolklang.quettar.org/fonts/
+\usepackage[ngerman]{babel}
+
+% Falls utf8 nicht funktioniert (was es eigentlich definitiv tun sollte) kann man auch die folgenden Optionen verwenden:
+%  Windows: ansinew
+%  Linux: latin1
+%  Max: applemac
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc} % Sollte immer benutzt werden um Probleme bei der Worttrennung zu vermeiden
+\usepackage[a4paper]{geometry}
+
+\usepackage{hyperref}
+\usepackage{apacite}
+
+
+
+% Das benutzen wir nur wenn wir eine 'einfache' Titelseite benutzen, anderenfalls löschen wir diese 3 Zeilen
+% und fügen unsere etwas komplexere Titelseite direkt an der Stelle von '\maketitle' ein
+\title{Seminarausarbeitung}
+\author {Muster Student}
+\date{ \today}
+
+
+
+
+
+
+% Hier beginn unser Dokument
+\begin{document}
+
+%\maketitle
+\begin{titlepage} 
+	\begin{small}
+    \vfill {
+Universität Meine Stadt\\ 
+Institut für \LaTeX \\ 
+Wintersemester 2015/16}
+  \end{small}
+  \begin{center}
+    \begin{Large}
+      \vfill {\textsf{\textbf{Meine Hausarbeit} } \\ {\small{Und eine kleine Unterüberschrift}} \\ {\tiny Wir sind so frei ...} }
+    \end{Large}
+  \end{center}
+    \begin{small}
+    \vfill Dein Name \\ Deine Adresse \\  PLZ Wohnort \\  Email\\ 
+    \today
+  \end{small}
+\end{titlepage}
+
+\newpage
+
+% Hier können wir ein Inhaltsverzeichnis einfügen
+\tableofcontents
+
+\newpage
+
+\section{Mein erstes Kapitel}
+
+\subsection{Mein erstes Unterkapitel}
+
+Und ein bisschen Text darf auch nicht fehlen \cite{macklin2013position}
+
+\section{Mein nächstes Kapitel}
+
+
+% Mein Literaturverzeichnis
+\newpage
+\bibliographystyle{apacite}
+\bibliography{meineLiteratur}
+
+\end{document}
