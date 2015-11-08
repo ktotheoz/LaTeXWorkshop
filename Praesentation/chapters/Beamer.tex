@@ -1,0 +1,237 @@
+\section{Beamer}
+
+
+
+\subsection{Beamer Klasse}
+
+\begin{frame}[<+->]
+  \frametitle{Einleitung}
+
+  \begin{block}{Vorteile}
+  \begin{itemize}
+    \item Komplexe Formeln stellen keinerlei Probleme dar
+    \item Verlinkte Navigationsstrukturen
+    \item Mehrere Versionen (Handout, Artikel, etc.)
+    \item Erzeugung von PDF Dateien (Gut für Plattformunabgängigkeit)
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+
+% Themes
+\subsection{Themes}
+
+\begin{frame}
+  \frametitle{Themes}
+
+  \begin{block}{usetheme}
+    Um ein spezielles Theme auszuwählen braucht meein im Kopf der Datei eine weitere Anweisung \lstinline{usetheme{NAME}}.
+  \end{block}
+
+  \begin{block}{Standard Themen}
+  \centering
+	\begin{tabular}{c|c|c|c}
+		Antibes & Bergen & Berkeley & Berlin \\\hline
+		\textbf{Boadilla} & Copenhagen & Darmstadt & Dresden \\\hline
+		Frankfurt & Goettingen & Hannover & Ilmenau \\\hline
+		Juanlespins & Madrid & Malmoe & Marburg \\\hline
+		Montpellier & Paloalto & Pittsburgh & Rochester \\\hline
+		Singapore & Warsaw & &
+	\end{tabular}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Farbenschemas}
+
+  \begin{block}{usecolortheme}
+    Um ein spezielles Farbschema auszuwählen braucht meein im Kopf der Datei eine weitere Anweisung \lstinline{usecolortheme{NAME}}.
+  \end{block}
+
+  \begin{block}{Teils verschiedene Farbschemas}
+  \centering
+  \begin{tabular}{c|c|c|c}
+  albatross & beaver & beetle & crane \\\hline
+  \textbf{default} & dolphin & dove & fly \\\hline
+  lily & orchid & rose & seagull \\\hline
+  seahorse & sidebartab & structure & whale \\\hline
+  wolverine & &
+  \end{tabular}
+  \end{block}
+\end{frame}
+
+
+% Folien erzeugen
+\subsection{Folien erzeugen}
+
+\begin{frame}[fragile]
+  \frametitle{Grundgerüst}
+  \begin{block}{Neue \textit{documentclass}}
+    \begin{itemize}[<+->]
+      \item Wir brauchen eine andere \textit{documentclass}.
+      \item Bisher haben wir \textit{article} verwendet
+      \item Für Präsentationen verwenden wir \textit{beamer}
+    \end{itemize}
+  \end{block}
+  \pause
+  \begin{block}{Neue Folie}
+  \begin{verbatim}
+    \begin{frame}
+    \end{frame}
+  \end{verbatim}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Einfache Folien}
+    \begin{verbatim}
+
+  \frametitle{Einfache Folien}
+  \begin{itemize}
+    \item Item 1
+    \item Item 2
+    \item Item 3
+  \end{itemize}
+
+    \end{verbatim}
+    Ergebnis auf der nächsten Folie:
+\end{frame}
+\begin{frame}
+  \frametitle{Einfache Folien}
+  \begin{itemize}
+    \item Item 1
+    \item Item 2
+    \item Item 3
+  \end{itemize}
+\end{frame}
+% Langsam einblendende Listen
+\begin{frame}[<+->]
+  \frametitle{Einblendende Liste}
+  \begin{itemize}
+    \item Dieser Typ Folien
+    \item ist eventuell aus anderen
+    \item Veranstaltungen bekannt.
+  \end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Einblendende Liste}
+  \begin{block}{Code}
+    \begin{verbatim}
+begin{frame}[<+->]
+  \begin{itemize}
+    \item Dieser Typ Folien
+    \item ist eventuell aus anderen
+    \item Veranstaltungen bekannt.
+  \end{itemize}
+end{frame}
+  \end{verbatim}
+  \end{block}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Explizite Overlays}
+
+    \begin{overlayarea}{\textwidth}{4\baselineskip}
+  \begin{block}{Explizite Spezifikationen}
+      \visible<1>{Erscheint nur auf der ersten Folie} \\
+      {\color<1-3>{green}{Dieser Text ist auf den Folien 1 bis 3 grün.} }\\
+      \alert<3->{Ab Folie 3 erscheint dieser Text rot} \\
+      \only<-4>{Dieser Text ist auf allen Folien, bis auf Folie 4} 
+      \textbf<1, 3-4>{Dieser Text ist nur auf den Folien 1 und 3 bis 4 fett.} \\
+      \alt<5>{Wir haben es fast geschafft ...}{Sind wir bald am Ende??} \\
+  \end{block}
+    \end{overlayarea}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Explizite Overlays}
+
+  \begin{block}{Code}
+    \begin{verbatim}
+    \begin{overlayarea}{\textwidth}{4\baselineskip}
+  \begin{block}{Explizite Spezifikationen}
+      \visible<1>{Erscheint nur auf der ersten Folie} \\
+      {\color<1-3>{green}{Dieser Text ist auf den Folien 1 bis 3 grün.} }\\
+      \alert<3->{Ab Folie 3 erscheint dieser Text rot} \\
+      \only<-4>{Dieser Text ist auf allen Folien, bis auf Folie 4} 
+      \textbf<1, 3-4>{Dieser Text ist nur auf den Folien 1 und 3 bis 4 fett.} \\
+      \alt<5>{Wir haben es fast geschafft ...}{Sind wir bald am Ende??} \\
+  \end{block}
+    \end{overlayarea}
+    \end{verbatim}
+  \end{block}
+\end{frame}
+
+% Boxen
+\begin{frame}
+  \frametitle{Boxen}
+  \begin{block}{Strukturen}
+    \begin{itemize}[<+->]
+      \item Mit Blöcken kann man etwas Struktur reinbringen
+      \item Es gibt unterschiedliche vordefinierte Varianten
+      \item Nun ein paar Beispiele was es denn so gibt.
+    \end{itemize}
+  \end{block}
+  \pause
+  \begin{block}{Meine Aufzählung}
+    \begin{itemize}
+      \item Example item 1
+      \item Example item 2
+      \item Example item 3
+    \end{itemize}
+  \end{block}
+\end{frame}
+\begin{frame}[fragile]
+  \begin{verbatim}
+  \begin{block}{Meine Aufzählung}
+    \begin{itemize}
+      \item Example item 1
+      \item Example item 2
+      \item Example item 3
+    \end{itemize}
+  \end{block}
+  \end{verbatim}
+\end{frame}
+\begin{frame}
+  \frametitle{Boxen 2}
+  \begin{block}{Eine Definition}
+  \begin{description}
+    \item[${G_3}'$:] Die Menge R ist ausdr"uckbar.
+  \end{description}
+  \end{block}
+\end{frame}
+\begin{frame}[fragile]
+  \begin{verbatim}
+  \begin{block}{Eine Definition}
+    \begin{description}
+      \item[${G_3}'$:] Die Menge R ist ausdr"uckbar.
+    \end{description}
+  \end{block
+  \end{verbatim}
+\end{frame}
+\begin{frame}
+  \frametitle{Boxen 3}
+  \begin{proof}
+    Beweis
+  \end{proof}
+  \begin{definition}
+    Definition
+  \end{definition}
+  \begin{example}
+    Beispiel
+  \end{example}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Boxen 3}
+  \begin{block}{Code}
+    \begin{verbatim}
+\begin{proof}
+  Beweis
+\end{proof}
+\begin{definition}
+  Definition
+\end{definition}
+\begin{example}
+  Beispiel
+\end{example}
+    \end{verbatim}
+  \end{block}
+\end{frame}

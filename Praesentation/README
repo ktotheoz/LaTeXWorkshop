@@ -1,0 +1,9 @@
+Wie wird diese Präsentation kompiliert:
+	latex verwenden und nicht pdflatex!
+
+	Für Konsolenbenutzer:
+		latex LaTeX_Seminar.tex
+		dvips LaTeX_Seminar.dvi
+		ps2pdf LaTeX_Seminar.ps
+
+		Und dann haben wir ein fertices *.pdf

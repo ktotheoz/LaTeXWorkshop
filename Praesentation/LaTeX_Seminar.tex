@@ -1,0 +1,109 @@
+\documentclass[dvips,mathserif]{beamer}
+\usetheme{Singapore}
+\usecolortheme{default}
+\useinnertheme{circles}
+\useoutertheme{default}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{standalone}
+\usepackage[dvips]{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{fancyvrb}
+
+\usepackage{showexpl}
+\DeclareGraphicsRule{.png}{eps}{.bb}{`convert #1 eps:-}
+\DeclareGraphicsRule{.gif}{eps}{.bb}{`convert #1 eps:-}
+\usepackage{grfext}
+\AppendGraphicsExtensions*{.png,.gif}
+\usepackage{bmpsize}
+\newcommand*{\IncludeGraphics}[2][]{{%
+    \let\@found\@empty
+    \@for\@type:=\bmpsize@types\do{%
+      \ifx\@found\@empty
+        \@nameuse{bmpsize@read@\@type}{#2.\@type}%
+        \ifbmpsize@ok
+          \let\@found=\@type
+        \fi
+      \fi
+    }%
+    \ifx\@found\@empty\includegraphics[{#1}]{#2}%
+    \else\includegraphics[{natwidth=\bmpsize@width,natheight=\bmpsize@height,#1}]{#2}%
+    \fi}}
+
+% Hiermit sagen wir das noch nicht eingeblendete Overlays leicht transparent dargestellt werden sollen
+\setbeamercovered{transparent}
+
+
+\lstloadlanguages{[LaTeX]Tex}
+\lstset{%
+     basicstyle=\ttfamily\small,
+     commentstyle=\itshape\ttfamily\small,
+     showspaces=false,
+     showstringspaces=false,
+     breaklines=true,
+     breakautoindent=true,
+     captionpos=t
+}
+
+% Das hier blender noch einmal eine Übersichtsfolie ein wenn wir eine neue Section erreicht
+\AtBeginSection[]
+{
+  \begin{frame}[t]{Überblick}
+    \tableofcontents[currentsection,hideallsubsections ]
+  \end{frame}
+}
+
+
+% Das hier blender noch einmal eine Übersichtsfolie ein wenn wir eine neue Subsection erreicht
+\AtBeginSubsection[]
+{
+  \begin{frame}[t]
+       \frametitle{Überblick}
+       \tableofcontents[currentsection,currentsubsection,sections=\thesection]
+  \end{frame}
+}
+
+
+
+\begin{document}
+
+
+\title{\LaTeX Workshop}
+\author{Markus Näther}
+\institute{ALU Freiburg}
+\date{\today}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+
+\frame{\tableofcontents[part=1,pausesections]}
+
+\input{chapters/Einleitung}
+\input{chapters/Grundlagen}
+\input{chapters/Beamer}
+\input{chapters/Informationen}
+
+\begin{frame}
+  \frametitle{EOF reached}
+
+  \begin{block}{Zum Schluss}
+    \begin{itemize}[<+->]
+      \item Fragen?
+      \item Anregungen?
+      \item Verbesserungsvorschläge?
+      \item HALP!
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\end{document}
